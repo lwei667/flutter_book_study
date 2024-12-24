@@ -14,7 +14,7 @@ enum IconDirection {
 
 /// 按钮
 class LWButton extends StatefulWidget {
-  LWButton._({Key? key, this.enabled = true, this.onPressed}) : super(key: key);
+  // LWButton._({Key? key}) : super(key: key);
 
   LWButton.custom({
     Key? key,
@@ -202,7 +202,7 @@ class LWButton extends StatefulWidget {
 
 class _LWButtonState extends State<LWButton> {
   _buildChild() {
-    Widget _child = widget.child ??
+    Widget child = widget.child ??
         Text(
           widget.text ?? "",
           style: TextStyle(
@@ -213,39 +213,39 @@ class _LWButtonState extends State<LWButton> {
         );
 
     if (widget.iconWidget != null) {
-      var _iconSpacing = widget.iconSpacing ?? 4.dp;
+      var iconSpacing = widget.iconSpacing ?? 4.dp;
       widget.iconDirection ??= IconDirection.left;
       switch (widget.iconDirection) {
         case IconDirection.left:
           return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             widget.iconWidget!,
-            SizedBox(width: _iconSpacing),
-            _child
+            SizedBox(width: iconSpacing),
+            child
           ]);
         case IconDirection.right:
           return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            _child,
-            SizedBox(width: _iconSpacing),
+            child,
+            SizedBox(width: iconSpacing),
             widget.iconWidget!
           ]);
         case IconDirection.bottom:
           return Column(children: [
             widget.iconWidget!,
-            SizedBox(height: _iconSpacing),
-            _child
+            SizedBox(height: iconSpacing),
+            child
           ]);
         case IconDirection.top:
           return Column(children: [
-            _child,
-            SizedBox(height: _iconSpacing),
+            child,
+            SizedBox(height: iconSpacing),
             widget.iconWidget!
           ]);
         default:
-          return _child;
+          return child;
       }
     }
 
-    return _child;
+    return child;
   }
 
   @override

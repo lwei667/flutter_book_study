@@ -220,7 +220,9 @@ class _LWOptionState extends State<LWOption> {
             widget.onSelectedMultiple?.call(_items.where((element) => element.select).toList());
             state(() {});
           } else {
-            _items.forEach((e) => e.select = e == item);
+            for (var e in _items) {
+              e.select = e == item;
+            }
             setState(() {});
             widget.onSelectedSingle?.call(item);
           }

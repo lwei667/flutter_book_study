@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../basic/colors/lw_colors.dart';
@@ -8,7 +7,8 @@ import '../../basic/font/lw_font_weight.dart';
 import '../../lw_widget.dart';
 
 /// 标题栏构建器（含statusBar）
-typedef void OnBackPressed({Map<String, dynamic>? resultParams, List<String>? untilRoutes});
+typedef OnBackPressed = void Function(
+    {Map<String, dynamic>? resultParams, List<String>? untilRoutes});
 
 class LWTitleBar {
   bool onlyStatusBar = false;
@@ -52,7 +52,9 @@ class LWTitleBar {
   });
 
   AppBar? build({bool isSliver = false}) {
-    if (titleWidget == null && titleName?.isNotEmpty != true && !onlyStatusBar) {
+    if (titleWidget == null &&
+        titleName?.isNotEmpty != true &&
+        !onlyStatusBar) {
       if (actions?.isNotEmpty != true) {
         return null;
       } else {
@@ -65,13 +67,16 @@ class LWTitleBar {
       if (backgroundAlpha! < 0) backgroundAlpha = 0;
       if (backgroundAlpha! > 1) backgroundAlpha = 1;
     }
-    Color textColor = titleColor ?? (backgroundAlpha == 0 ? Colors.white : LWColors.gray1);
-    Color appbarColor = backgroundAlpha == 0 ? Colors.transparent : backgroundColor;
+    Color textColor =
+        titleColor ?? (backgroundAlpha == 0 ? Colors.white : LWColors.gray1);
+    Color appbarColor =
+        backgroundAlpha == 0 ? Colors.transparent : backgroundColor;
     bool isLight = backgroundAlpha == 0;
     if (backgroundAlpha != null && backgroundAlpha! > 0) {
       appbarColor = Colors.white.withOpacity(backgroundAlpha!);
       isLight = backgroundAlpha! < 0.5;
-      textColor = Color.alphaBlend(LWColors.gray1.withOpacity(backgroundAlpha!), Colors.white);
+      textColor = Color.alphaBlend(
+          LWColors.gray1.withOpacity(backgroundAlpha!), Colors.white);
     }
 
     if (onlyStatusBar) {
@@ -79,40 +84,47 @@ class LWTitleBar {
         backgroundColor: appbarColor,
         systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
           statusBarColor: Colors.transparent,
-          statusBarBrightness: brightnessLight ? Brightness.dark : Brightness.light, // iOS
-          statusBarIconBrightness: brightnessLight ? Brightness.light : Brightness.dark, // Android
+          statusBarBrightness:
+              brightnessLight ? Brightness.dark : Brightness.light, // iOS
+          statusBarIconBrightness:
+              brightnessLight ? Brightness.light : Brightness.dark, // Android
           // tips-230531: iOS和Android的状态栏图标的Brightness是相反的
         ),
         elevation: 0,
         toolbarHeight: 0.dp,
       );
     } else {
-      var _titleWidget = _buildTitleWidget(textColor);
-      var _leftWidget = _buildLeftWidget(textColor);
+      var titleWidget = _buildTitleWidget(textColor);
+      var leftWidget = _buildLeftWidget(textColor);
 
       return AppBar(
         backgroundColor: appbarColor,
         systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
           statusBarColor: Colors.transparent,
-          statusBarBrightness: brightnessLight ? Brightness.dark : Brightness.light, // iOS
-          statusBarIconBrightness: brightnessLight ? Brightness.light : Brightness.dark, // Android
+          statusBarBrightness:
+              brightnessLight ? Brightness.dark : Brightness.light, // iOS
+          statusBarIconBrightness:
+              brightnessLight ? Brightness.light : Brightness.dark, // Android
           // tips-230531: iOS和Android的状态栏图标的Brightness是相反的
         ),
         elevation: 0,
         centerTitle: titleCenter,
-        title: _titleWidget,
+        title: titleWidget,
         toolbarHeight: titleHeight ?? 40.dp,
-        leading: _leftWidget,
-        leadingWidth: _leftWidget == null && titleWidget != null ? 0 : null,
-        titleSpacing: _leftWidget == null && titleWidget != null ? 0 : null,
-        automaticallyImplyLeading: _leftWidget != null,
+        leading: leftWidget,
+        leadingWidth: leftWidget == null && titleWidget != null ? 0 : null,
+        titleSpacing: leftWidget == null && titleWidget != null ? 0 : null,
+        automaticallyImplyLeading: leftWidget != null,
         actions: actions,
       );
     }
   }
 
-  SliverAppBar buildToSliver({required double expandedHeight, Widget? expandedWidget}) {
-    if (titleWidget == null && titleName?.isNotEmpty != true && actions?.isNotEmpty == true) {
+  SliverAppBar buildToSliver(
+      {required double expandedHeight, Widget? expandedWidget}) {
+    if (this.titleWidget == null &&
+        titleName?.isNotEmpty != true &&
+        actions?.isNotEmpty == true) {
       hasBackIcon = false;
     }
 
@@ -121,68 +133,79 @@ class LWTitleBar {
       if (backgroundAlpha! < 0) backgroundAlpha = 0;
       if (backgroundAlpha! > 1) backgroundAlpha = 1;
     }
-    Color textColor = backgroundAlpha == 0 ? Colors.white : (titleColor ?? LWColors.gray1);
-    Color appbarColor = backgroundAlpha == 0 ? Colors.transparent : backgroundColor;
+    Color textColor =
+        backgroundAlpha == 0 ? Colors.white : (titleColor ?? LWColors.gray1);
+    Color appbarColor =
+        backgroundAlpha == 0 ? Colors.transparent : backgroundColor;
     bool isLight = backgroundAlpha == 0;
     if (backgroundAlpha != null && backgroundAlpha! > 0) {
       appbarColor = Colors.white.withOpacity(backgroundAlpha!);
       isLight = backgroundAlpha! < 0.5;
-      textColor = Color.alphaBlend(LWColors.gray1.withOpacity(backgroundAlpha!), Colors.white);
+      textColor = Color.alphaBlend(
+          LWColors.gray1.withOpacity(backgroundAlpha!), Colors.white);
     }
 
-    var _titleWidget = _buildTitleWidget(textColor);
-    var _leftWidget = _buildLeftWidget(textColor);
+    var titleWidget = _buildTitleWidget(textColor);
+    var leftWidget = _buildLeftWidget(textColor);
 
     return SliverAppBar(
       backgroundColor: Colors.white,
       systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
         statusBarColor: Colors.transparent,
-        statusBarBrightness: brightnessLight ? Brightness.dark : Brightness.light, // iOS
-        statusBarIconBrightness: brightnessLight ? Brightness.light : Brightness.dark, // Android
+        statusBarBrightness:
+            brightnessLight ? Brightness.dark : Brightness.light, // iOS
+        statusBarIconBrightness:
+            brightnessLight ? Brightness.light : Brightness.dark, // Android
       ),
       elevation: 0,
       centerTitle: titleCenter,
-      title: _titleWidget,
+      title: titleWidget,
       toolbarHeight: 40.dp,
-      leading: _leftWidget,
-      leadingWidth: _leftWidget == null && titleWidget != null ? 0 : null,
-      titleSpacing: _leftWidget == null && titleWidget != null ? 0 : null,
-      automaticallyImplyLeading: _leftWidget != null,
+      leading: leftWidget,
+      leadingWidth: leftWidget == null && titleWidget != null ? 0 : null,
+      titleSpacing: leftWidget == null && titleWidget != null ? 0 : null,
+      automaticallyImplyLeading: leftWidget != null,
       actions: actions,
       expandedHeight: expandedHeight,
       floating: false,
       pinned: true,
       snap: false,
       stretch: false,
-      flexibleSpace: expandedWidget == null ? null : FlexibleSpaceBar(background: expandedWidget),
+      flexibleSpace: expandedWidget == null
+          ? null
+          : FlexibleSpaceBar(background: expandedWidget),
     );
   }
 
   // 构建标题
   Widget? _buildTitleWidget(Color textColor) {
-    Widget? _titleWidget;
+    Widget? tWidget;
     if (titleWidget != null) {
-      _titleWidget = titleWidget;
+      tWidget = titleWidget;
     } else if (titleName?.isNotEmpty == true) {
-      _titleWidget = Text(
+      tWidget = Text(
         titleName!,
-        style: TextStyle(fontSize: titleFontSize ?? 16.sp, fontWeight: LWFontWeight.bold, color: textColor),
+        style: TextStyle(
+            fontSize: titleFontSize ?? 16.sp,
+            fontWeight: LWFontWeight.bold,
+            color: textColor),
       );
     }
-    return _titleWidget;
+    return tWidget;
   }
 
   // 左侧按钮区
   Widget? _buildLeftWidget(Color textColor) {
-    Widget? _leftWidget;
+    Widget? leftWidget;
     if (titleWidget != null && !titleCenter) {
-      _leftWidget = null;
+      leftWidget = null;
     } else if (hasBackIcon) {
-      _leftWidget = IconButton(
+      leftWidget = IconButton(
         onPressed: () => onBackPressed?.call(),
-        icon: backIcon ?? LWWidget.assetSvg('ic_title_back.svg', color: textColor),
+        icon: backIcon ??
+            LWWidget.assetSvg('ic_title_back.svg', color: textColor),
       );
     }
-    return _leftWidget;
+    return leftWidget;
   }
 }

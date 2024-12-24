@@ -76,7 +76,7 @@ Future<T?> showPopover<T extends Object?>({
   required WidgetBuilder bodyBuilder,
   PopoverDirection direction = PopoverDirection.bottom,
   PopoverTransition transition = PopoverTransition.other,
-  Color backgroundColor = const Color(0x8FFFFFFFF),
+  Color backgroundColor = const Color(0x8ffffffff),
   Color barrierColor = const Color(0x80000000),
   Duration transitionDuration = const Duration(milliseconds: 200),
   double radius = 8,
@@ -117,7 +117,6 @@ Future<T?> showPopover<T extends Object?>({
           },
           child: PopoverItem(
             transition: transition,
-            child: Builder(builder: bodyBuilder),
             context: context,
             backgroundColor: backgroundColor,
             direction: direction,
@@ -132,6 +131,7 @@ Future<T?> showPopover<T extends Object?>({
             arrowDyOffset: arrowDyOffset,
             contentDyOffset: contentDyOffset,
             key: key,
+            child: Builder(builder: bodyBuilder),
           ),
         );
       },

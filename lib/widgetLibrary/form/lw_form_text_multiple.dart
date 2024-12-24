@@ -16,7 +16,7 @@ import '../utils/size_util.dart';
 ///  |—————————————————————————————————|
 ///
 class LWFormTextMultiple extends LWForm {
-  LWFormTextMultiple({
+  LWFormTextMultiple({super.key, 
     ///必传：左上角标题
     required String title,
     ///必传: 文本输入的最大长度

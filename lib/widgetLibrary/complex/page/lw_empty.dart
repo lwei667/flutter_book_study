@@ -36,16 +36,16 @@ class LWEmpty extends StatelessWidget {
   final Widget? actionCustom;
 
   _getText() {
-    String _text = '这里暂时没有内容~';
+    String text = '这里暂时没有内容~';
     if (emptyType == LWEmptyType.loadFailed) {
-      _text = '加载失败';
+      text = '加载失败';
     } else if (emptyType == LWEmptyType.netAnomaly) {
-      _text = '服务器异常';
+      text = '服务器异常';
     }
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Text(
-        emptyTips ?? _text,
+        emptyTips ?? text,
         textAlign: TextAlign.center,
         maxLines: 2,
         style: const TextStyle(fontSize: 12, color: LWColors.gray4, overflow: TextOverflow.ellipsis),

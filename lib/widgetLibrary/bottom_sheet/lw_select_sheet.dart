@@ -194,6 +194,15 @@ class _LWSelectSheetState extends State<LWSelectSheet> {
           ? const EdgeInsets.symmetric(vertical: 8, horizontal: 18)
           : const EdgeInsets.only(top: 10),
       child: LWButton.custom(
+        minHeight: widget.isMultipleSelect ? 38 : 44,
+        backgroundColor: widget.isMultipleSelect ? LWColors.theme : Colors.white,
+        onPressed: () {
+          if (widget.isMultipleSelect) {
+            _onSelectComplete();
+          } else {
+            _onCancel();
+          }
+        },
         child: widget.isMultipleSelect
             ? const Text(
                 "确定",
@@ -206,15 +215,6 @@ class _LWSelectSheetState extends State<LWSelectSheet> {
                   fontSize: 14,
                 ),
               ),
-        minHeight: widget.isMultipleSelect ? 38 : 44,
-        backgroundColor: widget.isMultipleSelect ? LWColors.theme : Colors.white,
-        onPressed: () {
-          if (widget.isMultipleSelect) {
-            _onSelectComplete();
-          } else {
-            _onCancel();
-          }
-        },
       ),
     );
   }

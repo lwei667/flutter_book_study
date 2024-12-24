@@ -16,7 +16,7 @@ class PopoverContext extends SingleChildRenderObjectWidget {
   final double arrowHeight;
 
   const PopoverContext(
-      {required this.transition,
+      {super.key, required this.transition,
       required this.animation,
       required this.attachRect,
       required this.arrowHeight,

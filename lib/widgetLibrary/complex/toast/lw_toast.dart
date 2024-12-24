@@ -91,11 +91,11 @@ class LWToast {
   static String _resetText(String text) {
     // 每行最多7个字符
     List<String> texts = [];
-    String _text = text;
-    while (_text.isNotEmpty) {
-      int index = min(7, _text.length);
-      texts.add(_text.substring(0, index));
-      _text = _text.substring(index, _text.length);
+    String text0 = text;
+    while (text0.isNotEmpty) {
+      int index = min(7, text0.length);
+      texts.add(text0.substring(0, index));
+      text0 = text0.substring(index, text0.length);
     }
     return texts.join('\n');
   }

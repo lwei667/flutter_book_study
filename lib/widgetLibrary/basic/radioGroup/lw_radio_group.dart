@@ -139,7 +139,9 @@ class _LWRadioGroupState extends State<_LWRadioGroupAbstract> {
             widget.onSelectedMultiple?.call(_data.where((element) => element.select).toList());
             state(() {});
           } else {
-            _data.forEach((e) => e.select = e == item);
+            for (var e in _data) {
+              e.select = e == item;
+            }
             setState(() {});
             widget.onSelectedSingle?.call(item);
           }

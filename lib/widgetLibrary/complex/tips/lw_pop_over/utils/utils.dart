@@ -17,7 +17,7 @@ class Utils {
   Utils._();
 
   void _init() {
-    final mediaQuery = MediaQueryData.fromWindow(ui.window);
+    final mediaQuery = MediaQueryData.fromView(ui.window);
     if (mediaQueryData != mediaQuery) {
       screenWidth = mediaQuery.size.width;
       screenHeight = mediaQuery.size.height;

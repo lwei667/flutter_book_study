@@ -33,7 +33,7 @@ class LWItem {
       displayName: displayName,
       otherInfo: otherInfo == null ? null : Map.from(otherInfo!),
       parentCode: parentCode,
-      children: children == null ? null : children!.map((e) => e.copy()).toList(),
+      children: children?.map((e) => e.copy()).toList(),
       select: select,
       enable: enable,
       isAll: isAll,

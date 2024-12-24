@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
               FocusManager.instance.primaryFocus?.unfocus();
             },
             child: MediaQuery(
-              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+              data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
               child: widget ?? Container(color: Colors.white),
             ),
           );

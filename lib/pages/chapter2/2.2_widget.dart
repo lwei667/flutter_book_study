@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StateCounterWidget extends StatefulWidget {
-  const StateCounterWidget({Key? key, this.initValue = 0});
+  const StateCounterWidget({super.key, this.initValue = 0});
 
   final int initValue;
 

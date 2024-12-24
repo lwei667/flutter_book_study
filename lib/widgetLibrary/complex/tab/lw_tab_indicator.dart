@@ -11,10 +11,9 @@ class LWUnderlineTabIndicator extends Decoration {
   const LWUnderlineTabIndicator({
     this.borderSide = const BorderSide(width: 2, color: Colors.white),
     this.insets = EdgeInsets.zero,
-    this.strokeCap: StrokeCap.square,
-    this.width: 20,
-  })  : assert(borderSide != null),
-        assert(insets != null);
+    this.strokeCap = StrokeCap.square,
+    this.width = 20,
+  })  : assert(insets != null);
 
   @override
   Decoration? lerpFrom(Decoration? a, double t) {
@@ -44,12 +43,10 @@ class LWUnderlineTabIndicator extends Decoration {
   }
 
   Rect _indicatorRectFor(Rect rect, TextDirection textDirection) {
-    assert(rect != null);
-    assert(textDirection != null);
     final Rect indicator = insets.resolve(textDirection).deflateRect(rect);
 
     // 希望的宽度
-    double wantWidth = this.width;
+    double wantWidth = width;
     // 取中间坐标
     double cw = (indicator.left + indicator.right) / 2;
     // 这里是核心代码
@@ -65,14 +62,12 @@ class LWUnderlineTabIndicator extends Decoration {
 
 class _UnderlinePainter extends BoxPainter {
   _UnderlinePainter(this.decoration, VoidCallback? onChanged)
-      : assert(decoration != null),
-        super(onChanged);
+      : super(onChanged);
 
   final LWUnderlineTabIndicator decoration;
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    assert(configuration != null);
     assert(configuration.size != null);
     final Rect rect = offset & configuration.size!;
     final TextDirection textDirection = configuration.textDirection!;

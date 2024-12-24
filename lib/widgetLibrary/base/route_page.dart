@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_book_study/widgetLibrary/base/base_page.dart';
-import 'package:flutter_book_study/widgetLibrary/lw_widget.dart';
-import '../basic/font/lw_font_weight.dart';
 import '../utils/size_util.dart';
 import '../basic/colors/lw_colors.dart';
-import '../basic/button/lw_button.dart';
-import '../basic/lw_click.dart';
-import '../basic/button/lw_button.dart';
 import 'routes.dart';
 
 ///设计稿 路由主页
@@ -55,7 +50,9 @@ class _RoutePageState extends BasePageState<RoutePage> {
                           child: Text(
                             AppRoutesTool.chapterName(index),
                             style: TextStyle(
-                                fontSize: 20.sp, color: LWColors.gray1,fontWeight: FontWeight.bold),
+                                fontSize: 20.sp,
+                                color: LWColors.gray1,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                         ListView.separated(

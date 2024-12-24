@@ -6,7 +6,6 @@ import 'lw_pop_over/lw_pop_item.dart';
 import 'lw_pop_over/lw_pop_theme.dart';
 import 'lw_pop_over/popover.dart';
 import 'lw_pop_over/popover_direction.dart';
-import 'lw_pop_over/popover_item.dart';
 import '../../utils/size_util.dart';
 
 import '../../basic/font/lw_font_weight.dart';

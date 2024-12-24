@@ -13,7 +13,7 @@ import '../basic/colors/lw_colors.dart';
 class LWFormInput extends LWForm {
   LWFormInput._() : super(title: '');
 
-  LWFormInput.vertical({
+  LWFormInput.vertical({super.key, 
     ///必传：左上角标题
     required String title,
 
@@ -73,7 +73,7 @@ class LWFormInput extends LWForm {
           dynamicSeparate: dynamicSeparate,
         );
 
-  LWFormInput.horizontal({
+  LWFormInput.horizontal({super.key, 
     ///必传：左上角标题
     required String title,
 
@@ -201,7 +201,7 @@ class _LWFormInputState extends LWFormState<LWFormInput> {
             onTap: () {
               _focusNode?.requestFocus();
             },
-            child: Container(
+            child: SizedBox(
               width: double.maxFinite,
               child: Text(
                 '',
@@ -219,7 +219,7 @@ class _LWFormInputState extends LWFormState<LWFormInput> {
   @override
   Widget? buildChildBottom() {
     return widget.direction == Axis.vertical
-        ? Container(
+        ? SizedBox(
             width: double.maxFinite,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

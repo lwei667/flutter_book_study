@@ -11,7 +11,7 @@ import '../utils/size_util.dart';
 class LWFormSelect extends LWForm {
   LWFormSelect._({required this.onTap}) : super(title: '');
 
-  LWFormSelect.vertical({
+  LWFormSelect.vertical({super.key, 
     ///必传：左上角标题
     required String title,
     ///不必传：文字字号
@@ -48,7 +48,7 @@ class LWFormSelect extends LWForm {
       direction: Axis.vertical,
       dynamicSeparate: dynamicSeparate);
 
-  LWFormSelect.horizontal({
+  LWFormSelect.horizontal({super.key, 
     ///必传：左上角标题
     required String title,
     ///不必传：文字字号
@@ -130,7 +130,7 @@ class _LWFormSelectState extends LWFormState<LWFormSelect> {
     return LWClick.onClick(
       onTap: widget.enable ? widget.onTap : null,
       child: widget.direction == Axis.vertical
-          ? Container(
+          ? SizedBox(
         width: double.maxFinite,
         child: Text(
           '',
@@ -150,7 +150,7 @@ class _LWFormSelectState extends LWFormState<LWFormSelect> {
     return widget.direction == Axis.vertical
         ? LWClick.onClick(
       onTap: widget.enable ? widget.onTap : null,
-      child: Container(
+      child: SizedBox(
         width: double.maxFinite,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

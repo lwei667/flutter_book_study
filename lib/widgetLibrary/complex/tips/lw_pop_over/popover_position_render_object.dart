@@ -51,17 +51,17 @@ class PopoverPositionRenderObject extends RenderShiftedBox {
   }
 
   Offset calculateOffset(Size size) {
-    final _direction = PopoverUtils.popoverDirection(
+    final direction = PopoverUtils.popoverDirection(
       attachRect,
       size,
       arrowHeight,
-      direction,
+      this.direction,
     );
 
-    if (_direction == PopoverDirection.top || _direction == PopoverDirection.bottom) {
-      return _dxOffset(_direction, _horizontalOffset(size), size);
+    if (direction == PopoverDirection.top || direction == PopoverDirection.bottom) {
+      return _dxOffset(direction, _horizontalOffset(size), size);
     } else {
-      return _dyOffset(_direction, _verticalOffset(size), size);
+      return _dyOffset(direction, _verticalOffset(size), size);
     }
   }
 
@@ -89,11 +89,11 @@ class PopoverPositionRenderObject extends RenderShiftedBox {
   }
 
   Offset _dyOffset(
-    PopoverDirection _direction,
+    PopoverDirection direction,
     double verticalOffset,
     Size size,
   ) {
-    if (_direction == PopoverDirection.right) {
+    if (direction == PopoverDirection.right) {
       return Offset(attachRect.right, verticalOffset);
     } else {
       return Offset(attachRect.left - size.width, verticalOffset);

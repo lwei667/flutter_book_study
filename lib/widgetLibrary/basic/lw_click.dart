@@ -11,11 +11,11 @@ class LWClick {
   ///   - antiMilliseconds 可重复点击的时间间隔
   static VoidCallback? onClickAnti({VoidCallback? onTap, int antiMilliseconds = 300}) {
     if (onTap == null) return null;
-    Timer? _timer;
+    Timer? timer;
     return () {
-      _timer = Timer(Duration(milliseconds: antiMilliseconds), () {
-        _timer?.cancel();
-        _timer = null;
+      timer = Timer(Duration(milliseconds: antiMilliseconds), () {
+        timer?.cancel();
+        timer = null;
       });
       onTap.call();
     };

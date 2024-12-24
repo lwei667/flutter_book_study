@@ -1,4 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_book_study/pages/chapter5/5.3_transform.dart';
+import 'package:flutter_book_study/pages/chapter6/6.10_customScrollView.dart';
+import 'package:flutter_book_study/pages/chapter6/6.11_custom_sliver.dart';
+import 'package:flutter_book_study/pages/chapter6/6.1_scrollable_abstact.dart';
+import 'package:flutter_book_study/pages/chapter6/6.2_signalChildScrollView.dart';
+import 'package:flutter_book_study/pages/chapter6/6.3_listView.dart';
+import 'package:flutter_book_study/pages/chapter6/6.4_scrollController.dart';
+import 'package:flutter_book_study/pages/chapter6/6.5_animatedList.dart';
+import 'package:flutter_book_study/pages/chapter6/6.6_gridView.dart';
+import 'package:flutter_book_study/pages/chapter6/6.7_pageView.dart';
+import 'package:flutter_book_study/pages/chapter6/6.8_AutomaticKeepAlive.dart';
+import 'package:flutter_book_study/pages/chapter6/6.9_TabBarView.dart';
+import 'package:flutter_book_study/pages/chapter7/7.1_willpopscope.dart';
+import 'package:flutter_book_study/pages/chapter7/7.2_inheritedwidget.dart';
+import 'package:flutter_book_study/pages/chapter7/7.3_custom_provider.dart';
+import 'package:flutter_book_study/pages/chapter8/8.1_listener.dart';
+import 'package:flutter_book_study/pages/chapter8/8.2_gesture.dart';
 
 class AppRoutesTool {
   AppRoutesTool._();
@@ -26,151 +43,151 @@ class AppRoutesTool {
     switch (chapter) {
       case 0:
         return [
-          _AppSectionNames.section1_1,
-          _AppSectionNames.section1_2,
-          _AppSectionNames.section1_3,
-          _AppSectionNames.section1_4
+          AppSectionNames.section1_1,
+          AppSectionNames.section1_2,
+          AppSectionNames.section1_3,
+          AppSectionNames.section1_4
         ];
       case 1:
         return [
-          _AppSectionNames.section2_1,
-          _AppSectionNames.section2_2,
-          _AppSectionNames.section2_3,
-          _AppSectionNames.section2_4,
-          _AppSectionNames.section2_5,
-          _AppSectionNames.section2_6,
-          _AppSectionNames.section2_7,
-          _AppSectionNames.section2_8,
+          AppSectionNames.section2_1,
+          AppSectionNames.section2_2,
+          AppSectionNames.section2_3,
+          AppSectionNames.section2_4,
+          AppSectionNames.section2_5,
+          AppSectionNames.section2_6,
+          AppSectionNames.section2_7,
+          AppSectionNames.section2_8,
         ];
       case 2:
         return [
-          _AppSectionNames.section3_1,
-          _AppSectionNames.section3_2,
-          _AppSectionNames.section3_3,
-          _AppSectionNames.section3_4,
-          _AppSectionNames.section3_5,
-          _AppSectionNames.section3_6,
+          AppSectionNames.section3_1,
+          AppSectionNames.section3_2,
+          AppSectionNames.section3_3,
+          AppSectionNames.section3_4,
+          AppSectionNames.section3_5,
+          AppSectionNames.section3_6,
         ];
       case 3:
         return [
-          _AppSectionNames.section4_1,
-          _AppSectionNames.section4_2,
-          _AppSectionNames.section4_3,
-          _AppSectionNames.section4_4,
-          _AppSectionNames.section4_5,
-          _AppSectionNames.section4_6,
-          _AppSectionNames.section4_7,
-          _AppSectionNames.section4_8,
+          AppSectionNames.section4_1,
+          AppSectionNames.section4_2,
+          AppSectionNames.section4_3,
+          AppSectionNames.section4_4,
+          AppSectionNames.section4_5,
+          AppSectionNames.section4_6,
+          AppSectionNames.section4_7,
+          AppSectionNames.section4_8,
         ];
       case 4:
         return [
-          _AppSectionNames.section5_1,
-          _AppSectionNames.section5_2,
-          _AppSectionNames.section5_3,
-          _AppSectionNames.section5_4,
-          _AppSectionNames.section5_5,
-          _AppSectionNames.section5_6,
-          _AppSectionNames.section5_7,
-          _AppSectionNames.section5_8,
+          AppSectionNames.section5_1,
+          AppSectionNames.section5_2,
+          AppSectionNames.section5_3,
+          AppSectionNames.section5_4,
+          AppSectionNames.section5_5,
+          AppSectionNames.section5_6,
+          AppSectionNames.section5_7,
+          AppSectionNames.section5_8,
         ];
       case 5:
         return [
-          _AppSectionNames.section6_1,
-          _AppSectionNames.section6_2,
-          _AppSectionNames.section6_3,
-          _AppSectionNames.section6_4,
-          _AppSectionNames.section6_5,
-          _AppSectionNames.section6_6,
-          _AppSectionNames.section6_7,
-          _AppSectionNames.section6_8,
-          _AppSectionNames.section6_9,
-          _AppSectionNames.section6_10,
-          _AppSectionNames.section6_11,
-          _AppSectionNames.section6_12,
+          AppSectionNames.section6_1,
+          AppSectionNames.section6_2,
+          AppSectionNames.section6_3,
+          AppSectionNames.section6_4,
+          AppSectionNames.section6_5,
+          AppSectionNames.section6_6,
+          AppSectionNames.section6_7,
+          AppSectionNames.section6_8,
+          AppSectionNames.section6_9,
+          AppSectionNames.section6_10,
+          AppSectionNames.section6_11,
+          AppSectionNames.section6_12,
         ];
       case 6:
         return [
-          _AppSectionNames.section7_1,
-          _AppSectionNames.section7_2,
-          _AppSectionNames.section7_3,
-          _AppSectionNames.section7_4,
-          _AppSectionNames.section7_5,
-          _AppSectionNames.section7_6,
-          _AppSectionNames.section7_7,
+          AppSectionNames.section7_1,
+          AppSectionNames.section7_2,
+          AppSectionNames.section7_3,
+          AppSectionNames.section7_4,
+          AppSectionNames.section7_5,
+          AppSectionNames.section7_6,
+          AppSectionNames.section7_7,
         ];
       case 7:
         return [
-          _AppSectionNames.section8_1,
-          _AppSectionNames.section8_2,
-          _AppSectionNames.section8_3,
-          _AppSectionNames.section8_4,
-          _AppSectionNames.section8_5,
-          _AppSectionNames.section8_6,
+          AppSectionNames.section8_1,
+          AppSectionNames.section8_2,
+          AppSectionNames.section8_3,
+          AppSectionNames.section8_4,
+          AppSectionNames.section8_5,
+          AppSectionNames.section8_6,
         ];
       case 8:
         return [
-          _AppSectionNames.section9_1,
-          _AppSectionNames.section9_2,
-          _AppSectionNames.section9_3,
-          _AppSectionNames.section9_4,
-          _AppSectionNames.section9_5,
-          _AppSectionNames.section9_6,
-          _AppSectionNames.section9_7,
+          AppSectionNames.section9_1,
+          AppSectionNames.section9_2,
+          AppSectionNames.section9_3,
+          AppSectionNames.section9_4,
+          AppSectionNames.section9_5,
+          AppSectionNames.section9_6,
+          AppSectionNames.section9_7,
         ];
       case 9:
         return [
-          _AppSectionNames.section10_1,
-          _AppSectionNames.section10_2,
-          _AppSectionNames.section10_3,
-          _AppSectionNames.section10_4,
-          _AppSectionNames.section10_5,
-          _AppSectionNames.section10_6,
-          _AppSectionNames.section10_7,
-          _AppSectionNames.section10_8,
+          AppSectionNames.section10_1,
+          AppSectionNames.section10_2,
+          AppSectionNames.section10_3,
+          AppSectionNames.section10_4,
+          AppSectionNames.section10_5,
+          AppSectionNames.section10_6,
+          AppSectionNames.section10_7,
+          AppSectionNames.section10_8,
         ];
       case 10:
         return [
-          _AppSectionNames.section11_1,
-          _AppSectionNames.section11_2,
-          _AppSectionNames.section11_3,
-          _AppSectionNames.section11_4,
-          _AppSectionNames.section11_5,
-          _AppSectionNames.section11_6,
-          _AppSectionNames.section11_7,
+          AppSectionNames.section11_1,
+          AppSectionNames.section11_2,
+          AppSectionNames.section11_3,
+          AppSectionNames.section11_4,
+          AppSectionNames.section11_5,
+          AppSectionNames.section11_6,
+          AppSectionNames.section11_7,
         ];
       case 11:
         return [
-          _AppSectionNames.section12_1,
-          _AppSectionNames.section12_2,
+          AppSectionNames.section12_1,
+          AppSectionNames.section12_2,
         ];
       case 12:
         return [
-          _AppSectionNames.section13_1,
-          _AppSectionNames.section13_2,
-          _AppSectionNames.section13_3,
-          _AppSectionNames.section13_4
+          AppSectionNames.section13_1,
+          AppSectionNames.section13_2,
+          AppSectionNames.section13_3,
+          AppSectionNames.section13_4
         ];
       case 13:
         return [
-          _AppSectionNames.section14_1,
-          _AppSectionNames.section14_2,
-          _AppSectionNames.section14_3,
-          _AppSectionNames.section14_4,
-          _AppSectionNames.section14_5,
-          _AppSectionNames.section14_6,
-          _AppSectionNames.section14_7,
-          _AppSectionNames.section14_8,
+          AppSectionNames.section14_1,
+          AppSectionNames.section14_2,
+          AppSectionNames.section14_3,
+          AppSectionNames.section14_4,
+          AppSectionNames.section14_5,
+          AppSectionNames.section14_6,
+          AppSectionNames.section14_7,
+          AppSectionNames.section14_8,
         ];
       case 14:
         return [
-          _AppSectionNames.section15_1,
-          _AppSectionNames.section15_2,
-          _AppSectionNames.section15_3,
-          _AppSectionNames.section15_4,
-          _AppSectionNames.section15_5,
-          _AppSectionNames.section15_6,
-          _AppSectionNames.section15_7,
-          _AppSectionNames.section15_8,
+          AppSectionNames.section15_1,
+          AppSectionNames.section15_2,
+          AppSectionNames.section15_3,
+          AppSectionNames.section15_4,
+          AppSectionNames.section15_5,
+          AppSectionNames.section15_6,
+          AppSectionNames.section15_7,
+          AppSectionNames.section15_8,
         ];
       default:
         return [];
@@ -202,8 +219,8 @@ class _AppChapterNames {
 }
 
 ///路由名
-class _AppSectionNames {
-  _AppSectionNames._();
+class AppSectionNames {
+  AppSectionNames._();
   static const String section1_1 = 'section1_1';
   static const String section1_2 = 'section1_2';
   static const String section1_3 = 'section1_3';
@@ -326,42 +343,164 @@ class _AppSectionNames {
 /// 路由对应页面名
 final _designSectionTitles = {
   // 第一章
-  _AppSectionNames.section1_1: '1.1 移动开发技术简介',
-  _AppSectionNames.section1_2: '1.2 初识Flutter',
-  _AppSectionNames.section1_3: '1.3 搭建Flutter开发环境',
-  _AppSectionNames.section1_4: '1.4 Dart语言简介',
+  AppSectionNames.section1_1: '1.1 移动开发技术简介',
+  AppSectionNames.section1_2: '1.2 初识Flutter',
+  AppSectionNames.section1_3: '1.3 搭建Flutter开发环境',
+  AppSectionNames.section1_4: '1.4 Dart语言简介',
 
   //第二章
-  _AppSectionNames.section2_1: '2.1 计数器应用示例',
-  _AppSectionNames.section2_2: '2.2 Widget简介',
-  _AppSectionNames.section2_3: '2.3 状态管理',
-  _AppSectionNames.section2_4: '2.4 路由管理',
-  _AppSectionNames.section2_5: '2.5 包管理',
-  _AppSectionNames.section2_6: '2.6 资源管理',
-  _AppSectionNames.section2_7: '2.7 调试Flutter应用',
-  _AppSectionNames.section2_8: '2.8 Flutter异常捕获',
+  AppSectionNames.section2_1: '2.1 计数器应用示例',
+  AppSectionNames.section2_2: '2.2 Widget简介',
+  AppSectionNames.section2_3: '2.3 状态管理',
+  AppSectionNames.section2_4: '2.4 路由管理',
+  AppSectionNames.section2_5: '2.5 包管理',
+  AppSectionNames.section2_6: '2.6 资源管理',
+  AppSectionNames.section2_7: '2.7 调试Flutter应用',
+  AppSectionNames.section2_8: '2.8 Flutter异常捕获',
 
   // 第三章
-  // _AppSectionNames.section3_1: '',
+  // AppSectionNames.section3_1: '',
+
+  // 第六章
+  AppSectionNames.section6_1: '6.1 可滚动组件简介',
+  AppSectionNames.section6_2: '6.2 SingleChildScrollView',
+  AppSectionNames.section6_3: '6.3 ListView',
+  AppSectionNames.section6_4: '6.4 滚动监听及控制',
+  AppSectionNames.section6_5: '6.5 AnimatedList',
+  AppSectionNames.section6_6: '6.6 GridView',
+  AppSectionNames.section6_7: '6.7 PageView与页面缓存',
+  AppSectionNames.section6_8: '6.8 可滚动组件子项缓存',
+  AppSectionNames.section6_9: '6.9 TabBarView',
+  AppSectionNames.section6_10: '6.10 CustomScrollView 和 Slivers',
+  AppSectionNames.section6_11: '6.11 自定义 Sliver',
+  AppSectionNames.section6_12: '6.12 嵌套可滚动组件 NestedScrollView',
+
+  // 第七章
+  AppSectionNames.section7_1: '7.1 导航返回拦截（WillPopScope）',
+  AppSectionNames.section7_2: '7.2 数据共享（InheritedWidget）',
+  AppSectionNames.section7_3: '7.3 跨组件状态共享',
+  AppSectionNames.section7_4: '7.4 颜色和主题',
+  AppSectionNames.section7_5: '7.5 按需rebuild（ValueListenableBuilder）',
+  AppSectionNames.section7_6: '7.6 异步UI更新（FutureBuilder、StreamBuilder）',
+  AppSectionNames.section7_7: '7.7 对话框详解',
+
+  // 第八章
+  AppSectionNames.section8_1: '8.1 原始指针事件处理',
+  AppSectionNames.section8_2: '8.2 手势识别',
+  AppSectionNames.section8_3: '8.3 Flutter事件机制',
+  AppSectionNames.section8_4: '8.4 手势原理与手势冲突',
+  AppSectionNames.section8_5: '8.5 事件总线',
+  AppSectionNames.section8_6: '8.6 通知 Notification',
 };
 
 /// 路由对应的页面
 final designRoutes = {
-  // AppSectionNames.section11: (context) => TransformDemo(),
+  AppSectionNames.section2_1: (context, title, route, args) => TransformDemo(),
+  AppSectionNames.section6_1: (context, title, route, args) =>
+      ScrollableAbstactPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section6_2: (context, title, route, args) =>
+      SignalChildScrollViewPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section6_3: (context, title, route, args) => ListViewPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section6_4: (context, title, route, args) =>
+      ScrollControllerPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section6_5: (context, title, route, args) => AnimatedListPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section6_6: (context, title, route, args) => GridViewPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section6_7: (context, title, route, args) => PageViewPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section6_8: (context, title, route, args) =>
+      AutomaticKeepAlivePage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section6_9: (context, title, route, args) => TabBarViewPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section6_10: (context, title, route, args) =>
+      CustomScrollViewPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section6_11: (context, title, route, args) =>
+      CustomSliverViewPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section7_1: (context, title, route, args) =>
+      WillPopscopeDemoPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section7_2: (context, title, route, args) =>
+      InheritedWidgetDemo(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section7_3: (context, title, route, args) =>
+      CustomProviderDemoPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section8_1: (context, title, route, args) => ListenerPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section8_2: (context, title, route, args) => GesturePage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
 };
 
 var onGenerateDesignDraftRoute = (RouteSettings settings) {
   final String? name = settings.name;
-  final Function? pageContentBuilder = designRoutes[name];
+  final String? title = _designSectionTitles[name];
+  var pageContentBuilder = designRoutes[name];
+  debugPrint('name:$name,title:$title');
   if (pageContentBuilder != null) {
     if (settings.arguments != null) {
       final Route route = MaterialPageRoute(
           builder: (context) =>
-              pageContentBuilder(context, arguments: settings.arguments));
+              pageContentBuilder(context, title, name, settings.arguments));
       return route;
     } else {
-      final Route route =
-          MaterialPageRoute(builder: (context) => pageContentBuilder(context));
+      final Route route = MaterialPageRoute(
+          builder: (context) => pageContentBuilder(context, title, name, {}));
       return route;
     }
   }

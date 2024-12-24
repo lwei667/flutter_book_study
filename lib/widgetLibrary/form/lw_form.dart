@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../widgetLibrary/utils/size_util.dart';
@@ -21,50 +20,71 @@ import '../lw_widget.dart';
 class LWForm extends StatefulWidget {
   LWForm({
     Key? key,
+
     ///必传：左上角标题
     required this.title,
+
     ///不必传：文字字号
     this.titleSize,
     this.valueSize,
+
     ///不必传：右边或底部部件
     this.child,
+
     ///不必传：是否必选 *
     this.required,
+
     ///不必传：有回调表示显示图标
     this.onTapTips,
+
     ///不必传：部件宽度
     this.width,
+
     ///不必传：部件高度
     this.height,
+
     ///不必传：组件内边距 默认：横向 12 纵向 16
     this.padding,
+
     ///不必传：控制背景样式
     this.constraints,
+
     ///不必传：背景颜色
     this.backgroundColor,
+
     ///不必传：纵向/横向布局  Axis.vertical  Axis.horizontal
     this.direction,
+
     ///不必传：是否动态分割title与value的空间比例
     this.dynamicSeparate = true,
   }) : super(key: key);
 
   LWForm.vertical({
+    Key? key,
+
     ///必传：左上角标题
     required String title,
+
     ///不必传：文字字号
     double? titleSize,
     double? valueSize,
+
     ///必传：右边部件
     required Widget child,
+
     ///不必传：是否必选 *
     bool? required,
+
     ///不必传：组件内边距 默认：横向 12 纵向 16
     EdgeInsets? padding,
+
     ///不必传：有回调表示显示图标
     Function()? onTapTips,
+
     ///不必传：是否动态分割title与value的空间比例
     bool dynamicSeparate = true,
   }) : this(
+            key: key,
             title: title,
             required: required,
             child: child,
@@ -76,22 +96,31 @@ class LWForm extends StatefulWidget {
             dynamicSeparate: dynamicSeparate);
 
   LWForm.horizontal({
+    Key? key,
+
     ///必传：左上角标题
     required String title,
+
     ///不必传：文字字号
     double? titleSize,
     double? valueSize,
+
     ///必传：底部部件
     required Widget child,
+
     ///不必传：是否必选 *
     bool? required,
+
     ///不必传：组件内边距 默认：横向 12 纵向 16
     EdgeInsets? padding,
+
     ///不必传：有回调表示显示图标
     Function()? onTapTips,
+
     ///不必传：是否动态分割title与value的空间比例
     bool dynamicSeparate = true,
   }) : this(
+            key: key,
             title: title,
             required: required,
             child: child,
@@ -149,7 +178,8 @@ class LWFormState<T extends LWForm> extends State<T> {
       width: widget.width,
       height: widget.height,
       constraints: widget.constraints,
-      padding: widget.padding ?? EdgeInsets.only(left: 12.dp, top: 16.dp, right: 12.dp, bottom: 16.dp),
+      padding: widget.padding ??
+          EdgeInsets.only(left: 12.dp, top: 16.dp, right: 12.dp, bottom: 16.dp),
       alignment: Alignment.centerLeft,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -181,9 +211,13 @@ class LWFormState<T extends LWForm> extends State<T> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            widget.dynamicSeparate ? _buildTitle() : Expanded(child: _buildTitle()),
+            widget.dynamicSeparate
+                ? _buildTitle()
+                : Expanded(child: _buildTitle()),
             SizedBox(width: 24.dp),
-            Expanded(child: Align(child: widget.child!, alignment: Alignment.centerRight)),
+            Expanded(
+                child: Align(
+                    alignment: Alignment.centerRight, child: widget.child!)),
           ],
         );
       }
@@ -195,7 +229,9 @@ class LWFormState<T extends LWForm> extends State<T> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              widget.dynamicSeparate ? _buildTitle() : Expanded(child: _buildTitle()),
+              widget.dynamicSeparate
+                  ? _buildTitle()
+                  : Expanded(child: _buildTitle()),
               SizedBox(width: 24.dp),
               Expanded(child: buildChildRight()!),
             ],
@@ -211,13 +247,18 @@ class LWFormState<T extends LWForm> extends State<T> {
     List<InlineSpan> children = [];
     children.add(TextSpan(
       text: widget.title,
-      style: TextStyle(fontSize: widget.titleSize ?? 14.sp, color: LWColors.gray2, height: 1.43),
+      style: TextStyle(
+          fontSize: widget.titleSize ?? 14.sp,
+          color: LWColors.gray2,
+          height: 1.43),
     ));
     if (widget.required == true) {
       children.add(
         WidgetSpan(
           alignment: PlaceholderAlignment.middle,
-          child: Text(' *', style: TextStyle(fontSize: widget.titleSize ?? 14.sp, color: LWColors.brand)),
+          child: Text(' *',
+              style: TextStyle(
+                  fontSize: widget.titleSize ?? 14.sp, color: LWColors.brand)),
         ),
       );
     }
@@ -229,7 +270,8 @@ class LWFormState<T extends LWForm> extends State<T> {
             onTap: widget.onTapTips,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: LWWidget.assetSvg('ic_form_tips.svg', height: 14.dp, width: 14.dp),
+              child: LWWidget.assetSvg('ic_form_tips.svg',
+                  height: 14.dp, width: 14.dp),
             ),
           ),
         ),

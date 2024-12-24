@@ -78,11 +78,11 @@ class PopoverRenderShiftedBox extends RenderShiftedBox {
   void paint(PaintingContext context, Offset offset) {
     final transform = Matrix4.identity();
     final childParentData = child!.parentData as BoxParentData;
-    final _direction = PopoverUtils.popoverDirection(
+    final direction = PopoverUtils.popoverDirection(
       attachRect,
       size,
       arrowHeight,
-      direction,
+      this.direction,
     );
     final bodyRect = childParentData.offset & child!.size;
 
@@ -95,7 +95,7 @@ class PopoverRenderShiftedBox extends RenderShiftedBox {
     late Rect arrowRect;
     late Offset translation;
 
-    switch (_direction) {
+    switch (direction) {
       case PopoverDirection.top:
         arrowRect = Rect.fromLTWH(
           arrowLeft,
@@ -133,12 +133,12 @@ class PopoverRenderShiftedBox extends RenderShiftedBox {
 
     _transform(transform, translation);
 
-    _paintShadows(context, transform, offset, _direction, arrowRect, bodyRect);
+    _paintShadows(context, transform, offset, direction, arrowRect, bodyRect);
 
     _pushClipPath(
       context,
       offset,
-      PopoverPath(radius!).draw(_direction, arrowRect, bodyRect),
+      PopoverPath(radius!).draw(direction, arrowRect, bodyRect),
       transform,
     );
   }
@@ -170,17 +170,17 @@ class PopoverRenderShiftedBox extends RenderShiftedBox {
   }
 
   void _configureChildOffset() {
-    final _direction = PopoverUtils.popoverDirection(
+    final direction = PopoverUtils.popoverDirection(
       attachRect,
       size,
       arrowHeight,
-      direction,
+      this.direction,
     );
 
     final childParentData = child!.parentData as BoxParentData?;
-    if (_direction == PopoverDirection.bottom) {
+    if (direction == PopoverDirection.bottom) {
       childParentData!.offset = Offset(0, arrowHeight);
-    } else if (_direction == PopoverDirection.right) {
+    } else if (direction == PopoverDirection.right) {
       childParentData!.offset = Offset(arrowHeight, 0);
     } else {
       childParentData!.offset = const Offset(0, 0);

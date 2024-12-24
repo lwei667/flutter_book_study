@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_book_study/widgetLibrary/base/routes.dart';
 import '../utils/size_util.dart';
 
 abstract class BasePage extends StatefulWidget {
@@ -16,8 +17,8 @@ abstract class BasePage extends StatefulWidget {
 }
 
 abstract class BasePageState<T extends BasePage> extends State<T> {
-  dynamic route;
-  dynamic args;
+  dynamic get route => widget.route;
+  dynamic get args => widget.args;
   bool get isFullPage => (route is String) && (route as String).isNotEmpty;
 
   // 安全区的底部margin
@@ -73,20 +74,26 @@ abstract class BasePageState<T extends BasePage> extends State<T> {
     }
   }
 
+  void loseFocus() {
+    FocusScope.of(context).requestFocus(FocusNode());
+  }
+
   Widget pageBuilder(
     String? titleName, {
     bool? resizeToAvoidBottomInset,
     Widget? body,
     Color? backgroundColor,
   }) {
-    var _titleWidget = Text(
+    var titleWidget = Text(
       titleName ?? widget.runtimeType.toString(),
       style: TextStyle(
           fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.white),
     );
-    var _backIcon = IconButton(
-        onPressed: Navigator.of(context).pop,
-        icon: const Icon(Icons.backspace));
+    var backIcon = IconButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        icon: const Icon(Icons.arrow_back_ios_new));
     var appbar = AppBar(
       backgroundColor: Colors.red,
       systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
@@ -96,10 +103,10 @@ abstract class BasePageState<T extends BasePage> extends State<T> {
       ),
       elevation: 0,
       centerTitle: true,
-      title: _titleWidget,
+      title: titleWidget,
       toolbarHeight: 44.dp,
-      leading: Navigator.of(context).canPop() ? _backIcon : null,
-      leadingWidth: 0,
+      leading: Navigator.of(context).canPop() ? backIcon : null,
+      leadingWidth: 50.dp,
       titleSpacing: 0,
       automaticallyImplyLeading: true,
     );
@@ -120,6 +127,6 @@ abstract class BasePageState<T extends BasePage> extends State<T> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return pageBuilder(widget.titleName,body: buildBody(context));
+    return pageBuilder(widget.titleName, body: buildBody(context));
   }
 }
