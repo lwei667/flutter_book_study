@@ -14,6 +14,10 @@ import 'package:flutter_book_study/pages/chapter6/6.9_TabBarView.dart';
 import 'package:flutter_book_study/pages/chapter7/7.1_willpopscope.dart';
 import 'package:flutter_book_study/pages/chapter7/7.2_inheritedwidget.dart';
 import 'package:flutter_book_study/pages/chapter7/7.3_custom_provider.dart';
+import 'package:flutter_book_study/pages/chapter7/7.4_color_theme.dart';
+import 'package:flutter_book_study/pages/chapter7/7.5_valuelistenable.dart';
+import 'package:flutter_book_study/pages/chapter7/7.6_future_stream_builder.dart';
+import 'package:flutter_book_study/pages/chapter7/7.7_dialog.dart';
 import 'package:flutter_book_study/pages/chapter8/8.1_listener.dart';
 import 'package:flutter_book_study/pages/chapter8/8.2_gesture.dart';
 
@@ -471,6 +475,29 @@ final designRoutes = {
       ),
   AppSectionNames.section7_3: (context, title, route, args) =>
       CustomProviderDemoPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section7_4: (context, title, route, args) =>
+      ColorThemeDemoPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section7_5: (context, title, route, args) =>
+      ValueListenableDemoPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section7_6: (context, title, route, args) =>
+      FutureStreamBuilderDemoPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section7_7: (context, title, route, args) => DialogDemoPage(
         titleName: title,
         route: route,
         args: args,

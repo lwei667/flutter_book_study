@@ -42,8 +42,8 @@ dependencies:
 
   pull_to_refresh: ^2.0.0
 
-  image_picker: 0.8.6 # 图片选择
-  image_cropper: 3.0.2 # 图片裁减，配合image_picker使用
+  image_picker: ^0.8.6 # 图片选择
+  image_cropper: ^3.0.2 # 图片裁减，配合image_picker使用
   file_picker: ^5.2.8 # 文件选择
   permission_handler: ^10.2.0 # 权限处理
 
@@ -51,7 +51,7 @@ dependencies:
   scrollable_positioned_list: ^0.2.2 #滚动到列表中指定item
 
   intl: ^0.17.0
-  flutter_svg: 1.0.3 # SVG图片
+  flutter_svg: ^1.0.3 # SVG图片
   linked_scroll_controller: ^0.2.0 #同步滚动controller
   sprintf: ^7.0.0 # 字符串格式化
 
@@ -63,6 +63,7 @@ dependencies:
 
   svgaplayer_flutter: ^2.2.0
   english_words: ^4.0.0
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:

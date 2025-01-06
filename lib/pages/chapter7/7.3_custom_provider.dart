@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_book_study/widgetLibrary/base/base_page.dart';
 import 'package:flutter_book_study/widgetLibrary/basic/button/lw_button.dart';
 
@@ -24,7 +25,7 @@ class _CustomProviderDemoPageState
 
   @override
   Widget buildBody(BuildContext context) {
-    return Container();
+    return originalBody();
   }
 
   Widget originalBody() {
@@ -94,6 +95,7 @@ class _InheritedProvider<T extends ChangeNotifier> extends InheritedWidget {
   const _InheritedProvider({Key? key, required this.data, required this.child})
       : super(key: key, child: child);
 
+  @override
   final Widget child;
 
   final T data;
@@ -105,7 +107,6 @@ class _InheritedProvider<T extends ChangeNotifier> extends InheritedWidget {
   @override
   bool updateShouldNotify(_InheritedProvider oldWidget) {
     //在此简单返回true，则每次更新都会调用依赖其的子孙节点的`didChangeDependencies`。
-    ChangeNotifier();
     return true;
   }
 }
@@ -119,9 +120,13 @@ class _ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
   final T data;
 
   //定义一个便捷方法，方便子树中的widget获取共享数据
-  static T? of<T>(BuildContext context) {
-    final provider =
-        context.dependOnInheritedWidgetOfExactType<_InheritedProvider>();
+  static T? of<T>(BuildContext context, {bool listen = true}) {
+    final provider = listen
+        ? context.dependOnInheritedWidgetOfExactType<_InheritedProvider>()
+        : context
+            .getElementForInheritedWidgetOfExactType<_InheritedProvider>()!
+            .widget as _InheritedProvider;
+    
     return provider?.data as T?;
   }
 

@@ -8,6 +8,7 @@ class _ShareDataWidget extends InheritedWidget {
 
   final int data;
 
+  @override
   final Widget child;
 
   //定义一个便捷方法，方便子树中的widget获取共享数据

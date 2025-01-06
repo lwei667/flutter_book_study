@@ -1,12 +1,10 @@
 
-import '../../lw_widget.dart';
 import '../colors/lw_colors.dart';
 import '../lw_click.dart';
 import '../../utils/size_util.dart';
 import '../font/lw_font_weight.dart';
 import '../lw_item.dart';
 import '../../utils/over_scroll_none_behavior.dart';
-import '../../utils/size_util.dart';
 import 'package:flutter/material.dart';
 
 /// 选项组，可以独立使用，也可以与LWForm组合

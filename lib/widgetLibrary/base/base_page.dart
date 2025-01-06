@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_book_study/widgetLibrary/base/routes.dart';
 import '../utils/size_util.dart';
 
 abstract class BasePage extends StatefulWidget {

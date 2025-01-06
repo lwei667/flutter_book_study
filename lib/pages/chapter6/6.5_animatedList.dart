@@ -66,7 +66,7 @@ class _AnimatedListPageState extends BasePageState<AnimatedListPage> {
       left: 0,
       right: 0,
       child: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
           // 添加一个列表项
           data.add('${++counter}');

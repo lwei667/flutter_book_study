@@ -13,7 +13,7 @@ class LWUnderlineTabIndicator extends Decoration {
     this.insets = EdgeInsets.zero,
     this.strokeCap = StrokeCap.square,
     this.width = 20,
-  })  : assert(insets != null);
+  });
 
   @override
   Decoration? lerpFrom(Decoration? a, double t) {
