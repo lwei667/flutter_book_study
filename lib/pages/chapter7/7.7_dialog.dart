@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_book_study/widgetLibrary/base/base_page.dart';
 import 'package:flutter_book_study/widgetLibrary/basic/button/lw_button.dart';
 
+/*
+  对话框页面状态更新：
+  1. 对话框中需要更新的部分使用StatefulBuilder包裹，使用StatefulBuilder中的setState来更新
+  2. 对话框中需要更新的部分使用Builder包裹，使用Builder中带的context，调用(context as Element).markNeedsBuild();
+  */
+
 class DialogDemoPage extends BasePage {
   DialogDemoPage({
     super.key,
@@ -117,7 +123,24 @@ class _DialogDemoPageState extends BasePageState<DialogDemoPage> {
                   },
                 );
               },
-            )
+            ),
+            InkWell(
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.lightBlue,
+                    borderRadius: BorderRadius.circular(5)),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: const Text(
+                  '底部弹出框',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              onTap: () async {
+                final i = await _showModalBottomSheet();
+                print('点击了$i');
+              },
+            ),
           ],
         ));
   }
@@ -214,42 +237,60 @@ class _DialogDemoPageState extends BasePageState<DialogDemoPage> {
       print('点击了: $index');
     }
   }
-}
 
-Future<T?> _showCustomDialog<T>({
-  required BuildContext context,
-  bool barrierDismissible = true,
-  required WidgetBuilder builder,
-  ThemeData? theme,
-}) {
-  final ThemeData theme = Theme.of(context);
+  Future<T?> _showCustomDialog<T>({
+    required BuildContext context,
+    bool barrierDismissible = true,
+    required WidgetBuilder builder,
+    ThemeData? theme,
+  }) {
+    final ThemeData theme = Theme.of(context);
 
-  return showGeneralDialog(
-    context: context,
-    barrierDismissible: barrierDismissible,
-    barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-    barrierColor: Colors.black87,
-    transitionDuration: const Duration(milliseconds: 150),
-    transitionBuilder: _buildMaterialDialogTransitions,
-    pageBuilder: (context, animation, secondaryAnimation) {
-      final pageChild = Builder(builder: builder);
-      return SafeArea(child: Builder(
-        builder: (context) {
-          return Theme(data: theme, child: pageChild);
-        },
-      ));
-    },
-  );
-}
+    return showGeneralDialog(
+      context: context,
+      barrierDismissible: barrierDismissible,
+      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+      barrierColor: Colors.black87,
+      transitionDuration: const Duration(milliseconds: 150),
+      transitionBuilder: _buildMaterialDialogTransitions,
+      pageBuilder: (context, animation, secondaryAnimation) {
+        final pageChild = Builder(builder: builder);
+        return SafeArea(child: Builder(
+          builder: (context) {
+            return Theme(data: theme, child: pageChild);
+          },
+        ));
+      },
+    );
+  }
 
-Widget _buildMaterialDialogTransitions(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget child) {
-  //使用缩放动画
-  return ScaleTransition(
-    scale: CurvedAnimation(parent: animation, curve: Curves.easeInOut),
-    child: child,
-  );
+  Widget _buildMaterialDialogTransitions(
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
+    //使用缩放动画
+    return ScaleTransition(
+      scale: CurvedAnimation(parent: animation, curve: Curves.easeInOut),
+      child: child,
+    );
+  }
+
+  // 弹出底部菜单列表模态对话框
+  Future<int?> _showModalBottomSheet() {
+    return showModalBottomSheet<int>(
+      context: context,
+      builder: (BuildContext context) {
+        return ListView.builder(
+          itemCount: 30,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Text("$index"),
+              onTap: () => Navigator.of(context).pop(index),
+            );
+          },
+        );
+      },
+    );
+  }
 }

@@ -20,6 +20,7 @@ import 'package:flutter_book_study/pages/chapter7/7.6_future_stream_builder.dart
 import 'package:flutter_book_study/pages/chapter7/7.7_dialog.dart';
 import 'package:flutter_book_study/pages/chapter8/8.1_listener.dart';
 import 'package:flutter_book_study/pages/chapter8/8.2_gesture.dart';
+import 'package:flutter_book_study/pages/chapter8/8.6_notification.dart';
 
 class AppRoutesTool {
   AppRoutesTool._();
@@ -508,6 +509,11 @@ final designRoutes = {
         args: args,
       ),
   AppSectionNames.section8_2: (context, title, route, args) => GesturePage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section8_6: (context, title, route, args) => NotificationDemo(
         titleName: title,
         route: route,
         args: args,

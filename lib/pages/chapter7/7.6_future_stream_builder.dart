@@ -31,13 +31,13 @@ enum ConnectionState {
 class _FutureStreamBuilderDemoPageState
     extends BasePageState<FutureStreamBuilderDemoPage> {
   Future<String> mockNetworkData() async {
-    return Future.delayed(Duration(seconds: 2), () {
+    return Future.delayed(const Duration(seconds: 2), () {
       return '这里是是互联网上获得的是数据';
     });
   }
 
   Stream<int> counter() {
-    return Stream.periodic(Duration(seconds: 1), (i) {
+    return Stream.periodic(const Duration(seconds: 1), (i) {
       return i;
     });
   }
@@ -70,7 +70,7 @@ class _FutureStreamBuilderDemoPageState
             }
           } else {
             // 请求未结束，显示loading
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
         },
       ),
@@ -88,13 +88,13 @@ class _FutureStreamBuilderDemoPageState
         } else {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
-              return Text('没有stream');
+              return const Text('没有stream');
             case ConnectionState.waiting:
-              return Text('等待数据');
+              return const Text('等待数据');
             case ConnectionState.active:
               return Text('active; ${snapshot.data}');
             case ConnectionState.done:
-              return Text('Stream 已关闭');
+              return const Text('Stream 已关闭');
           }
         }
       },

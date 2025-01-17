@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 /// TabBar的下划线装饰器
 class LWUnderlineTabIndicator extends Decoration {
