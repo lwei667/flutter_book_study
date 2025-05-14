@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_book_study/pages/chapter10/10.4_custompaint1.dart';
+import 'package:flutter_book_study/pages/chapter11/11.1_file_path.dart';
+import 'package:flutter_book_study/pages/chapter11/11.2_http_client.dart';
+import 'package:flutter_book_study/pages/chapter11/11.3_http_dio.dart';
+import 'package:flutter_book_study/pages/chapter14/14.7_layerPaint3.dart';
 import 'package:flutter_book_study/pages/chapter5/5.3_transform.dart';
 import 'package:flutter_book_study/pages/chapter6/6.10_customScrollView.dart';
 import 'package:flutter_book_study/pages/chapter6/6.11_custom_sliver.dart';
@@ -21,6 +26,7 @@ import 'package:flutter_book_study/pages/chapter7/7.7_dialog.dart';
 import 'package:flutter_book_study/pages/chapter8/8.1_listener.dart';
 import 'package:flutter_book_study/pages/chapter8/8.2_gesture.dart';
 import 'package:flutter_book_study/pages/chapter8/8.6_notification.dart';
+import 'package:flutter_book_study/pages/chapter9/9.1_animation_basic.dart';
 
 class AppRoutesTool {
   AppRoutesTool._();
@@ -396,6 +402,64 @@ final _designSectionTitles = {
   AppSectionNames.section8_4: '8.4 手势原理与手势冲突',
   AppSectionNames.section8_5: '8.5 事件总线',
   AppSectionNames.section8_6: '8.6 通知 Notification',
+
+  // 第九章
+  AppSectionNames.section9_1: '9.1 Flutter动画简介',
+  AppSectionNames.section9_2: '9.2 动画基本结构及状态监听',
+  AppSectionNames.section9_3: '9.3 自定义路由切换动画',
+  AppSectionNames.section9_4: '9.4 Hero动画',
+  AppSectionNames.section9_5: '9.5 交织动画',
+  AppSectionNames.section9_6: '9.6 动画切换组件（AnimatedSwitcher）',
+  AppSectionNames.section9_7: '9.7 动画过渡组件',
+
+  // 第十章
+  AppSectionNames.section10_1: '10.1 自定义组件方法简介',
+  AppSectionNames.section10_2: '10.2 组合现有组件',
+  AppSectionNames.section10_3: '10.3 组合实例：TurnBox',
+  AppSectionNames.section10_4: '10.4 CustomPaint 与 Canvas',
+  AppSectionNames.section10_5: '10.5 自绘实例：圆形背景渐变进度条',
+  AppSectionNames.section10_6: '10.6 自绘组件：CustomCheckbox',
+  AppSectionNames.section10_7: '10.7 自绘组件: DoneWidget',
+  AppSectionNames.section10_8: '10.8 水印实例: 文本绘制与离屏渲染',
+
+  // 第十一章
+  AppSectionNames.section11_1: '11.1 文件操作',
+  AppSectionNames.section11_2: '11.2 通过HttpClient发起HTTP请求',
+  AppSectionNames.section11_3: '11.3 Http请求库-dio',
+  AppSectionNames.section11_4: '11.4 实例：Http分块下载',
+  AppSectionNames.section11_5: '11.5 使用WebSockets',
+  AppSectionNames.section11_6: '11.6 使用Socket API',
+  AppSectionNames.section11_7: '11.7 JSON转Dart Model类',
+
+  // 第十二章
+  AppSectionNames.section12_1: '12.1 包和插件',
+  AppSectionNames.section12_2: '12.2 Flutter Web',
+
+  // 第十三章
+  AppSectionNames.section13_1: '13.1 让App支持多语言',
+  AppSectionNames.section13_2: '13.2 实现Localizations',
+  AppSectionNames.section13_3: '13.3 使用Intl包',
+  AppSectionNames.section13_4: '13.4 国际化常见问题',
+
+  // 第十四章
+  AppSectionNames.section14_1: '14.1 Flutter UI 框架（Framework）',
+  AppSectionNames.section14_2: '14.2 Element、BuildContext和RenderObject',
+  AppSectionNames.section14_3: '14.3 Flutter启动流程和渲染管线',
+  AppSectionNames.section14_4: '14.4 布局（Layout）过程',
+  AppSectionNames.section14_5: '14.5 绘制（一）绘制原理及Layer',
+  AppSectionNames.section14_6: '14.6 绘制（二）组件树绘制流程',
+  AppSectionNames.section14_7: '14.7 绘制（三）Layer 实例',
+  AppSectionNames.section14_8: '14.8 绘制（四）Compositing',
+
+  // 第十五章
+  AppSectionNames.section15_1: '15.1 Github客户端示例',
+  AppSectionNames.section15_2: '15.2 Flutter APP代码结构',
+  AppSectionNames.section15_3: '15.3 Model类定义',
+  AppSectionNames.section15_4: '15.4 全局变量及共享状态',
+  AppSectionNames.section15_5: '15.5 网络请求封装',
+  AppSectionNames.section15_6: '15.6 APP入口及主页',
+  AppSectionNames.section15_7: '15.7 登录页',
+  AppSectionNames.section15_8: '15.8 多语言和多主题',
 };
 
 /// 路由对应的页面
@@ -514,6 +578,40 @@ final designRoutes = {
         args: args,
       ),
   AppSectionNames.section8_6: (context, title, route, args) => NotificationDemo(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section9_1: (context, title, route, args) =>
+      AnimationBasicDemoPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section10_4: (context, title, route, args) =>
+      CustomPaintDemo1(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section11_1: (context, title, route, args) =>
+      FilePathDemoPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section11_2: (context, title, route, args) =>
+      HttpClientDemoPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section11_3: (context, title, route, args) => HttpDioDemoPage(
+        titleName: title,
+        route: route,
+        args: args,
+      ),
+  AppSectionNames.section14_7: (context, title, route, args) => LayerPaint3Demo(
         titleName: title,
         route: route,
         args: args,
